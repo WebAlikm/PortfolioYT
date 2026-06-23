@@ -17,6 +17,7 @@
 }
 
 html {
+  overflow-x: hidden;
   scroll-behavior: smooth;
 }
 
@@ -241,6 +242,7 @@ h2 {
   font-weight: 950;
   line-height: 0.78;
   text-transform: uppercase;
+  overflow-wrap: break-word;
 }
 
 h3 {
@@ -575,6 +577,47 @@ p {
   background: var(--line);
 }
 
+.freelancer-grid,
+.case-grid,
+.template-grid {
+  display: grid;
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+
+.freelancer-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.freelancer-grid article,
+.case-grid article,
+.template-grid article {
+  min-width: 0;
+  padding: clamp(1rem, 3vw, 1.4rem);
+  background: #080808;
+}
+
+.freelancer-grid article {
+  min-height: 20rem;
+  display: grid;
+  align-content: end;
+  background:
+    radial-gradient(circle at 20% 18%, rgba(240, 194, 55, 0.12), transparent 10rem),
+    #080808;
+}
+
+.freelancer-grid span,
+.template-grid span {
+  display: block;
+  margin-bottom: 2rem;
+  color: var(--accent);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
 .business-panel,
 .business-grid article {
   background: #080808;
@@ -628,6 +671,73 @@ p {
   margin-bottom: 2rem;
   color: var(--accent-red);
   font-weight: 950;
+}
+
+.case-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.case-grid dl {
+  display: grid;
+  gap: 1rem;
+  margin: 1.2rem 0 0;
+}
+
+.case-grid dt {
+  margin-bottom: 0.25rem;
+  color: var(--accent);
+  font-size: 0.7rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.case-grid dd {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.education-section {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(320px, 1.1fr);
+  gap: 1px;
+  align-items: stretch;
+  width: min(1240px, calc(100% - 2rem));
+  border: 1px solid var(--line);
+  padding: 0;
+  background: var(--line);
+  overflow: hidden;
+}
+
+.education-panel,
+.template-grid article {
+  background: #080808;
+}
+
+.education-panel,
+.template-grid {
+  min-width: 0;
+}
+
+.education-panel {
+  display: grid;
+  align-content: end;
+  padding: clamp(1.2rem, 5vw, 3rem);
+  background:
+    radial-gradient(circle at 82% 20%, rgba(240, 194, 55, 0.2), transparent 16rem),
+    linear-gradient(135deg, rgba(239, 75, 53, 0.12), transparent 46%),
+    #080808;
+  overflow: hidden;
+}
+
+.education-panel p {
+  max-width: 560px;
+}
+
+.template-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border: 0;
 }
 
 .service-grid,
@@ -828,25 +938,7 @@ textarea {
 }
 
 .hidden-field {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 0;
-  max-width: 0;
-  height: 0;
-  max-height: 0;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  clip-path: inset(50%);
-  opacity: 0;
-  pointer-events: none;
-}
-
-.hidden-field input {
-  width: 0;
-  min-width: 0;
-  border: 0;
-  padding: 0;
+  display: none;
 }
 
 .video-modal {
@@ -912,6 +1004,7 @@ textarea {
   .section-masthead,
   .about-section,
   .business-section,
+  .education-section,
   .submit-section,
   .modal-panel {
     grid-template-columns: 1fr;
@@ -927,8 +1020,11 @@ textarea {
 
   .service-grid,
   .persona-grid,
+  .freelancer-grid,
+  .case-grid,
   .package-grid,
   .faq-grid,
+  .template-grid,
   .stat-list {
     grid-template-columns: 1fr;
   }
