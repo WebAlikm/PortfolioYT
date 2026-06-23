@@ -7,6 +7,8 @@ const modalVideo = document.querySelector(".modal-video");
 const modalTitle = document.querySelector("#modal-title");
 const modalCaption = document.querySelector(".modal-caption");
 const modalClose = document.querySelector(".modal-close");
+const voiceoverButton = document.querySelector(".voiceover-button");
+const funnyVoiceover = document.querySelector(".funny-voiceover");
 const form = document.querySelector(".request-form");
 const fileInput = document.querySelector('input[type="file"]');
 const fileNote = document.querySelector("[data-file-note]");
@@ -20,8 +22,38 @@ function pausePreviews(exceptVideo) {
   });
 }
 
+function setVoiceoverState(isPlaying) {
+  voiceoverButton?.classList.toggle("is-playing", isPlaying);
+  voiceoverButton?.setAttribute("aria-pressed", String(isPlaying));
+
+  if (voiceoverButton) {
+    voiceoverButton.textContent = isPlaying ? "Pause voiceover" : "Funny voiceover";
+  }
+}
+
 previewVideos.forEach((video) => {
   video.addEventListener("play", () => pausePreviews(video));
+});
+
+voiceoverButton?.addEventListener("click", () => {
+  if (!funnyVoiceover) {
+    return;
+  }
+
+  if (funnyVoiceover.paused) {
+    pausePreviews();
+    modalVideo?.pause();
+    funnyVoiceover.currentTime = funnyVoiceover.ended ? 0 : funnyVoiceover.currentTime;
+    funnyVoiceover.play().then(() => setVoiceoverState(true)).catch(() => {});
+  } else {
+    funnyVoiceover.pause();
+    setVoiceoverState(false);
+  }
+});
+
+funnyVoiceover?.addEventListener("ended", () => {
+  setVoiceoverState(false);
+  funnyVoiceover.currentTime = 0;
 });
 
 videoTriggers.forEach((trigger) => {

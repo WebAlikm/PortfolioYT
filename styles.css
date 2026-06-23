@@ -305,6 +305,18 @@ p {
   color: var(--ink);
 }
 
+.voiceover-button {
+  border-color: var(--accent);
+  background: rgba(240, 194, 55, 0.08);
+  color: var(--accent);
+}
+
+.voiceover-button:hover,
+.voiceover-button.is-playing {
+  background: var(--accent);
+  color: #050505;
+}
+
 .hero-note {
   position: absolute;
   right: max(1rem, calc((100vw - 1240px) / 2));
