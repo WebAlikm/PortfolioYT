@@ -15,6 +15,7 @@ const fileInput = document.querySelector('input[type="file"]');
 const fileNote = document.querySelector("[data-file-note]");
 const statusMessage = document.querySelector(".form-status");
 const surveyStatus = document.querySelector(".survey-status");
+const surveyRecipient = "alislim007km@gmail.com";
 
 function pausePreviews(exceptVideo) {
   previewVideos.forEach((video) => {
@@ -127,6 +128,34 @@ form?.addEventListener("submit", () => {
   statusMessage.textContent = "Sending your brief...";
 });
 
-surveyForm?.addEventListener("submit", () => {
-  surveyStatus.textContent = "Sending your survey...";
+function getSurveyValue(name) {
+  return surveyForm?.elements[name]?.value?.trim() || "Not provided";
+}
+
+function getCheckedLabel(name) {
+  const checked = surveyForm?.querySelector(`input[name="${name}"]:checked`);
+  return checked?.closest("label")?.textContent.trim() || "Not provided";
+}
+
+surveyForm?.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  if (surveyForm.elements.website?.value) {
+    return;
+  }
+
+  const subject = "Script to Short survey";
+  const body = [
+    "New Script to Short survey response",
+    "",
+    `Persona: ${getSurveyValue("persona")}`,
+    `Main goal: ${getSurveyValue("goal")}`,
+    `Biggest blocker: ${getCheckedLabel("blocker")}`,
+    "",
+    "Notes:",
+    getSurveyValue("preference-notes"),
+  ].join("\n");
+
+  surveyStatus.textContent = `Opening an email to ${surveyRecipient}...`;
+  window.location.href = `mailto:${surveyRecipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 });
