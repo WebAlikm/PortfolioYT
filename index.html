@@ -1,0 +1,481 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Script to Short | YouTube Shorts Portfolio</title>
+    <meta
+      name="description"
+      content="A dark, portfolio-first YouTube Shorts site for demo work, script submissions, and voiceover-based short-form video requests."
+    >
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <div class="intro-loader" aria-hidden="true">
+      <span>SCRIPT TO SHORT</span>
+      <i></i>
+    </div>
+
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Go to top">
+        <span>Script</span>
+        <span>to Short</span>
+      </a>
+      <nav aria-label="Main navigation">
+        <a href="#work">Work</a>
+        <a href="#about">About</a>
+        <a href="#packages">Packages</a>
+        <a href="#submit">Submit</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <video
+          class="hero-bg"
+          src="./media/client-promo-content-machine-static-short.mp4"
+          poster="./media/posters/client-promo-content-machine-static-short.jpg"
+          muted
+          loop
+          playsinline
+          autoplay
+        ></video>
+        <div class="hero-shade"></div>
+
+        <div class="hero-content">
+          <p class="eyebrow">Shortform edit portfolio</p>
+          <h1 id="hero-title">Scripts into Shorts.</h1>
+          <p>
+            Send the script and voiceover. I turn it into a 9:16 YouTube Short
+            with pacing, captions, visuals, and sound.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#work">View the work</a>
+            <a class="button secondary" href="#submit">Submit a script</a>
+          </div>
+        </div>
+
+        <aside class="hero-note" aria-label="Featured demo">
+          <span>Main demo</span>
+          <strong>Client promo content machine</strong>
+          <p>Best reference for product, service, and offer-driven Shorts.</p>
+        </aside>
+      </section>
+
+      <section class="work-section" id="work" aria-labelledby="work-title">
+        <div class="section-masthead">
+          <p class="eyebrow">Portfolio</p>
+          <h2 id="work-title">Choose a lane.</h2>
+          <p>Like the reference sites, the work comes first. Pick a category, then open the edit.</p>
+        </div>
+
+        <div class="category-grid" aria-label="Demo categories">
+          <button class="category-tile active" type="button" data-filter="all">
+            <strong>All</strong>
+            <span>6 shorts</span>
+          </button>
+          <button class="category-tile" type="button" data-filter="promo">
+            <strong>Promo</strong>
+            <span>Click to view shorts</span>
+          </button>
+          <button class="category-tile" type="button" data-filter="science">
+            <strong>Science</strong>
+            <span>Click to view shorts</span>
+          </button>
+          <button class="category-tile" type="button" data-filter="psychology">
+            <strong>Psychology</strong>
+            <span>Click to view shorts</span>
+          </button>
+          <button class="category-tile" type="button" data-filter="sports">
+            <strong>Sports</strong>
+            <span>Click to view shorts</span>
+          </button>
+          <button class="category-tile" type="button" data-filter="dark">
+            <strong>Dark curiosity</strong>
+            <span>Click to view shorts</span>
+          </button>
+        </div>
+
+        <div class="demo-grid">
+          <article class="demo-card" data-category="promo">
+            <button
+              class="video-trigger"
+              type="button"
+              data-video="./media/client-promo-content-machine-static-short.mp4"
+              data-poster="./media/posters/client-promo-content-machine-static-short.jpg"
+              data-title="Client promo content machine"
+              data-caption="A sales-style Short for a product, service, offer, or client-facing campaign."
+            >
+              <video
+                src="./media/client-promo-content-machine-static-short.mp4"
+                poster="./media/posters/client-promo-content-machine-static-short.jpg"
+                muted
+                loop
+                playsinline
+                preload="metadata"
+              ></video>
+              <span>Play demo</span>
+            </button>
+            <p class="demo-type">Promo</p>
+            <h3>Client promo content machine</h3>
+          </article>
+
+          <article class="demo-card" data-category="science">
+            <button
+              class="video-trigger"
+              type="button"
+              data-video="./media/brain-visual-simulation-static-short.mp4"
+              data-poster="./media/posters/brain-visual-simulation-static-short.jpg"
+              data-title="Brain visual simulation"
+              data-caption="An educational Short with abstract visuals, steady pacing, and clear caption rhythm."
+            >
+              <video
+                src="./media/brain-visual-simulation-static-short.mp4"
+                poster="./media/posters/brain-visual-simulation-static-short.jpg"
+                muted
+                loop
+                playsinline
+                preload="metadata"
+              ></video>
+              <span>Play demo</span>
+            </button>
+            <p class="demo-type">Science</p>
+            <h3>Brain visual simulation</h3>
+          </article>
+
+          <article class="demo-card" data-category="science">
+            <button
+              class="video-trigger"
+              type="button"
+              data-video="./media/tickle-prediction-static-short.mp4"
+              data-poster="./media/posters/tickle-prediction-static-short.jpg"
+              data-title="Tickle prediction"
+              data-caption="A quick curiosity hook built around a simple, memorable science question."
+            >
+              <video
+                src="./media/tickle-prediction-static-short.mp4"
+                poster="./media/posters/tickle-prediction-static-short.jpg"
+                muted
+                loop
+                playsinline
+                preload="metadata"
+              ></video>
+              <span>Play demo</span>
+            </button>
+            <p class="demo-type">Science</p>
+            <h3>Tickle prediction</h3>
+          </article>
+
+          <article class="demo-card" data-category="psychology">
+            <button
+              class="video-trigger"
+              type="button"
+              data-video="./media/nocebo-effect-static-short.mp4"
+              data-poster="./media/posters/nocebo-effect-static-short.jpg"
+              data-title="Nocebo effect"
+              data-caption="A psychology explainer shaped around setup, tension, and payoff."
+            >
+              <video
+                src="./media/nocebo-effect-static-short.mp4"
+                poster="./media/posters/nocebo-effect-static-short.jpg"
+                muted
+                loop
+                playsinline
+                preload="metadata"
+              ></video>
+              <span>Play demo</span>
+            </button>
+            <p class="demo-type">Psychology</p>
+            <h3>Nocebo effect</h3>
+          </article>
+
+          <article class="demo-card" data-category="dark">
+            <button
+              class="video-trigger"
+              type="button"
+              data-video="./media/countdown-timer-death-static-short.mp4"
+              data-poster="./media/posters/countdown-timer-death-static-short.jpg"
+              data-title="Countdown timer death"
+              data-caption="A dramatic dark-curiosity concept with strong contrast and clean pacing."
+            >
+              <video
+                src="./media/countdown-timer-death-static-short.mp4"
+                poster="./media/posters/countdown-timer-death-static-short.jpg"
+                muted
+                loop
+                playsinline
+                preload="metadata"
+              ></video>
+              <span>Play demo</span>
+            </button>
+            <p class="demo-type">Dark curiosity</p>
+            <h3>Countdown timer death</h3>
+          </article>
+
+          <article class="demo-card" data-category="sports">
+            <button
+              class="video-trigger"
+              type="button"
+              data-video="./media/usa-world-cup-win-static-short.mp4"
+              data-poster="./media/posters/usa-world-cup-win-static-short.jpg"
+              data-title="USA World Cup win"
+              data-caption="Fast sports context with punchy captions and a clear narrative beat."
+            >
+              <video
+                src="./media/usa-world-cup-win-static-short.mp4"
+                poster="./media/posters/usa-world-cup-win-static-short.jpg"
+                muted
+                loop
+                playsinline
+                preload="metadata"
+              ></video>
+              <span>Play demo</span>
+            </button>
+            <p class="demo-type">Sports</p>
+            <h3>USA World Cup win</h3>
+          </article>
+        </div>
+      </section>
+
+      <section class="about-section" id="about" aria-labelledby="about-title">
+        <div>
+          <p class="eyebrow">About the edit</p>
+          <h2 id="about-title">A portfolio site first. A booking page second.</h2>
+        </div>
+        <div class="about-copy">
+          <p>
+            The goal is simple: make the work feel strong enough that people want to send
+            you a script. I build Shorts with readable captions, visual rhythm, sound
+            polish, and a clear final payoff.
+          </p>
+          <dl class="stat-list">
+            <div>
+              <dt>Format</dt>
+              <dd>9:16 YouTube Shorts</dd>
+            </div>
+            <div>
+              <dt>Input</dt>
+              <dd>Script, outline, or voiceover</dd>
+            </div>
+            <div>
+              <dt>Output</dt>
+              <dd>Finished vertical MP4</dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+
+      <section class="services-section" aria-labelledby="services-title">
+        <div class="section-masthead">
+          <p class="eyebrow">What I handle</p>
+          <h2 id="services-title">The edit work behind the final Short.</h2>
+        </div>
+
+        <div class="service-grid">
+          <article>
+            <span>01</span>
+            <h3>Caption design</h3>
+            <p>Readable, punchy captions timed to the voiceover.</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>Visual structure</h3>
+            <p>Scene rhythm, visual metaphors, and screen movement.</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>Sound polish</h3>
+            <p>Music, effects, pauses, and emphasis where the story needs it.</p>
+          </article>
+          <article>
+            <span>04</span>
+            <h3>Final delivery</h3>
+            <p>Vertical MP4 export ready for YouTube Shorts.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="packages-section" id="packages" aria-labelledby="packages-title">
+        <div class="section-masthead">
+          <p class="eyebrow">Ways to work</p>
+          <h2 id="packages-title">Pick the level that matches your content plan.</h2>
+        </div>
+
+        <div class="package-grid">
+          <article>
+            <p class="demo-type">Starter</p>
+            <h3>1 Short</h3>
+            <p>Best for testing a script, offer, or channel style.</p>
+            <ul>
+              <li>1 vertical edit</li>
+              <li>Captions and sound design</li>
+              <li>1 revision pass</li>
+            </ul>
+          </article>
+          <article class="featured-package">
+            <p class="demo-type">Most useful</p>
+            <h3>3-5 Shorts</h3>
+            <p>Best for a small batch in one consistent style.</p>
+            <ul>
+              <li>Batch pacing and visual direction</li>
+              <li>Reusable caption style</li>
+              <li>Priority feedback loop</li>
+            </ul>
+          </article>
+          <article>
+            <p class="demo-type">Ongoing</p>
+            <h3>Monthly edits</h3>
+            <p>Best if scripts or voiceovers are coming every week.</p>
+            <ul>
+              <li>Recurring delivery schedule</li>
+              <li>Channel style consistency</li>
+              <li>Monthly content queue</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="submit-section" id="submit" aria-labelledby="submit-title">
+        <div class="submit-copy">
+          <p class="eyebrow">Start a Short</p>
+          <h2 id="submit-title">Submit your script and voiceover.</h2>
+          <p>
+            Include references, pacing notes, and anything that must stay in the final cut.
+          </p>
+        </div>
+
+        <form
+          class="request-form"
+          name="short-request"
+          method="POST"
+          action="./success.html"
+          enctype="multipart/form-data"
+          data-netlify="true"
+          netlify-honeypot="company"
+        >
+          <input type="hidden" name="form-name" value="short-request">
+          <label class="hidden-field">
+            Company
+            <input name="company" tabindex="-1" autocomplete="off">
+          </label>
+
+          <div class="field-pair">
+            <label>
+              Name
+              <input name="name" type="text" placeholder="Your name" required>
+            </label>
+            <label>
+              Email
+              <input name="email" type="email" placeholder="you@example.com" required>
+            </label>
+          </div>
+
+          <label>
+            Channel or reference link
+            <input name="channel" type="url" placeholder="https://youtube.com/@yourchannel">
+          </label>
+
+          <div class="field-pair">
+            <label>
+              Desired length
+              <select name="length">
+                <option>Under 30 seconds</option>
+                <option>30-45 seconds</option>
+                <option>45-60 seconds</option>
+                <option>Not sure yet</option>
+              </select>
+            </label>
+            <label>
+              Budget range
+              <select name="budget">
+                <option>Need a quote</option>
+                <option>Starter single Short</option>
+                <option>Batch of 3-5 Shorts</option>
+                <option>Monthly editing</option>
+              </select>
+            </label>
+          </div>
+
+          <label>
+            Script
+            <textarea
+              name="script"
+              rows="8"
+              placeholder="Paste the full script or outline here."
+              required
+            ></textarea>
+          </label>
+
+          <div class="field-pair">
+            <label>
+              Voiceover file
+              <input name="voiceover" type="file" accept="audio/*,video/*">
+              <span class="file-note" data-file-note>No file selected</span>
+            </label>
+            <label>
+              Deadline
+              <input name="deadline" type="date">
+            </label>
+          </div>
+
+          <label>
+            Style reference
+            <input name="style-reference" type="url" placeholder="Paste a Short, Reel, or TikTok you like">
+          </label>
+
+          <label>
+            Notes
+            <textarea
+              name="notes"
+              rows="4"
+              placeholder="Tone, references, captions, music, or revision notes."
+            ></textarea>
+          </label>
+
+          <button class="button primary" type="submit">Submit brief</button>
+          <p class="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </section>
+
+      <section class="faq-section" id="faq" aria-labelledby="faq-title">
+        <div class="section-masthead">
+          <p class="eyebrow">FAQ</p>
+          <h2 id="faq-title">Quick answers before you send a brief.</h2>
+        </div>
+
+        <div class="faq-grid">
+          <article>
+            <h3>Can you work from only a voiceover?</h3>
+            <p>Yes. A clean voiceover and references are enough to start.</p>
+          </article>
+          <article>
+            <h3>Do you write scripts too?</h3>
+            <p>I can help tighten a script, restructure the hook, or suggest a stronger ending.</p>
+          </article>
+          <article>
+            <h3>What do I receive?</h3>
+            <p>A vertical MP4 ready for YouTube Shorts, plus a reusable style if needed.</p>
+          </article>
+          <article>
+            <h3>How should I send references?</h3>
+            <p>Paste links that match the pacing, caption style, or visual tone you want.</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <div class="video-modal" aria-hidden="true">
+      <button class="modal-close" type="button" aria-label="Close video">Close</button>
+      <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <video class="modal-video" controls playsinline></video>
+        <div>
+          <p class="demo-type">Selected demo</p>
+          <h2 id="modal-title">Demo title</h2>
+          <p class="modal-caption"></p>
+        </div>
+      </div>
+    </div>
+
+    <script src="./script.js?v=dark-gallery"></script>
+  </body>
+</html>
