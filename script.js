@@ -10,9 +10,11 @@ const modalClose = document.querySelector(".modal-close");
 const voiceoverButton = document.querySelector(".voiceover-button");
 const funnyVoiceover = document.querySelector(".funny-voiceover");
 const form = document.querySelector(".request-form");
+const surveyForm = document.querySelector(".survey-form");
 const fileInput = document.querySelector('input[type="file"]');
 const fileNote = document.querySelector("[data-file-note]");
 const statusMessage = document.querySelector(".form-status");
+const surveyStatus = document.querySelector(".survey-status");
 
 function pausePreviews(exceptVideo) {
   previewVideos.forEach((video) => {
@@ -123,4 +125,8 @@ fileInput?.addEventListener("change", () => {
 
 form?.addEventListener("submit", () => {
   statusMessage.textContent = "Sending your brief...";
+});
+
+surveyForm?.addEventListener("submit", () => {
+  surveyStatus.textContent = "Sending your survey...";
 });

@@ -23,9 +23,10 @@
       </a>
       <nav aria-label="Main navigation">
         <a href="#work">Work</a>
-        <a href="#about">About</a>
+        <a href="#personas">For You</a>
+        <a href="#business">Business</a>
         <a href="#packages">Packages</a>
-        <a href="#submit">Submit</a>
+        <a href="#survey">Survey</a>
       </nav>
     </header>
 
@@ -268,6 +269,123 @@
         </div>
       </section>
 
+      <section class="personas-section" id="personas" aria-labelledby="personas-title">
+        <div class="section-masthead">
+          <p class="eyebrow">Who this is for</p>
+          <h2 id="personas-title">Different goals. Different edits.</h2>
+          <p>Pick the lane that sounds closest to you. The brief can change based on what you need the Short to do.</p>
+        </div>
+
+        <div class="persona-grid">
+          <article>
+            <p class="demo-type">Creator / YouTuber</p>
+            <h3>Turn ideas into regular uploads.</h3>
+            <dl>
+              <div>
+                <dt>Interest</dt>
+                <dd>Growth, retention, consistent posting.</dd>
+              </div>
+              <div>
+                <dt>Pain point</dt>
+                <dd>You have ideas, but editing takes too long.</dd>
+              </div>
+              <div>
+                <dt>Best fit</dt>
+                <dd>Educational, commentary, and curiosity Shorts.</dd>
+              </div>
+            </dl>
+          </article>
+
+          <article>
+            <p class="demo-type">Founder / Small Business</p>
+            <h3>Make the offer easier to understand.</h3>
+            <dl>
+              <div>
+                <dt>Interest</dt>
+                <dd>Promos, product stories, service explainers.</dd>
+              </div>
+              <div>
+                <dt>Pain point</dt>
+                <dd>Your business is clear in person, but not on video.</dd>
+              </div>
+              <div>
+                <dt>Best fit</dt>
+                <dd>Offer-driven Shorts and client-facing promos.</dd>
+              </div>
+            </dl>
+          </article>
+
+          <article>
+            <p class="demo-type">Educator / Coach</p>
+            <h3>Make complex ideas feel simple.</h3>
+            <dl>
+              <div>
+                <dt>Interest</dt>
+                <dd>Teaching, authority, useful explanations.</dd>
+              </div>
+              <div>
+                <dt>Pain point</dt>
+                <dd>The idea is good, but the video needs structure.</dd>
+              </div>
+              <div>
+                <dt>Best fit</dt>
+                <dd>Visual explainers with clear captions and pacing.</dd>
+              </div>
+            </dl>
+          </article>
+
+          <article>
+            <p class="demo-type">Agency / Marketing Team</p>
+            <h3>Get a repeatable short-form workflow.</h3>
+            <dl>
+              <div>
+                <dt>Interest</dt>
+                <dd>Batch output, client content, campaign assets.</dd>
+              </div>
+              <div>
+                <dt>Pain point</dt>
+                <dd>Your team needs more variations without more editing load.</dd>
+              </div>
+              <div>
+                <dt>Best fit</dt>
+                <dd>3-5 Shorts or monthly editing support.</dd>
+              </div>
+            </dl>
+          </article>
+        </div>
+      </section>
+
+      <section class="business-section" id="business" aria-labelledby="business-title">
+        <div class="business-panel">
+          <p class="eyebrow">For businesses</p>
+          <h2 id="business-title">Promotional video without building a content department.</h2>
+          <p>
+            If your company needs a product explainer, campaign teaser, service pitch,
+            or founder-led Short, the edit can be built around the business outcome:
+            clarity, trust, and a reason to take action.
+          </p>
+          <a class="button primary" href="#submit">Send a business brief</a>
+        </div>
+
+        <div class="business-grid" aria-label="Business video use cases">
+          <article>
+            <span>01</span>
+            <h3>Product or service promo</h3>
+            <p>Turn your offer into a short, clear video people can understand fast.</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>Founder or brand story</h3>
+            <p>Use voiceover, captions, and visuals to make the company feel human.</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>Campaign content</h3>
+            <p>Create short-form assets for launches, ads, newsletters, or social posts.</p>
+          </article>
+        </div>
+      </section>
+
       <section class="services-section" aria-labelledby="services-title">
         <div class="section-masthead">
           <p class="eyebrow">What I handle</p>
@@ -336,6 +454,74 @@
             </ul>
           </article>
         </div>
+      </section>
+
+      <section class="survey-section" id="survey" aria-labelledby="survey-title">
+        <div class="section-masthead">
+          <p class="eyebrow">Quick survey</p>
+          <h2 id="survey-title">Tell me what kind of Short you need.</h2>
+          <p>A fast way to personalize the conversation before you send the full script.</p>
+        </div>
+
+        <form
+          class="survey-form"
+          name="visitor-survey"
+          method="POST"
+          action="./success.html"
+          data-netlify="true"
+          netlify-honeypot="website"
+        >
+          <input type="hidden" name="form-name" value="visitor-survey">
+          <label class="hidden-field">
+            Website
+            <input name="website" tabindex="-1" autocomplete="off">
+          </label>
+
+          <div class="field-pair">
+            <label>
+              I am a
+              <select name="persona">
+                <option>Creator / YouTuber</option>
+                <option>Founder / Small business</option>
+                <option>Educator / Coach</option>
+                <option>Agency / Marketing team</option>
+                <option>Not sure yet</option>
+              </select>
+            </label>
+            <label>
+              Main goal
+              <select name="goal">
+                <option>Grow an audience</option>
+                <option>Promote a product or service</option>
+                <option>Explain an idea clearly</option>
+                <option>Test short-form content</option>
+                <option>Build a monthly content system</option>
+              </select>
+            </label>
+          </div>
+
+          <fieldset>
+            <legend>Biggest blocker</legend>
+            <div class="choice-grid">
+              <label><input type="radio" name="blocker" value="editing-time"> Editing takes too long</label>
+              <label><input type="radio" name="blocker" value="visuals"> I do not know what visuals to use</label>
+              <label><input type="radio" name="blocker" value="captions"> Captions and pacing feel weak</label>
+              <label><input type="radio" name="blocker" value="strategy"> I need help choosing the format</label>
+            </div>
+          </fieldset>
+
+          <label>
+            Anything I should know?
+            <textarea
+              name="preference-notes"
+              rows="4"
+              placeholder="Channel, business, audience, style references, or what you are trying to sell/explain."
+            ></textarea>
+          </label>
+
+          <button class="button secondary" type="submit">Send survey</button>
+          <p class="survey-status" role="status" aria-live="polite"></p>
+        </form>
       </section>
 
       <section class="submit-section" id="submit" aria-labelledby="submit-title">
@@ -480,6 +666,6 @@
     </div>
 
     <audio class="funny-voiceover" src="./media/funny-voiceover.mp3" preload="auto"></audio>
-    <script src="./script.js?v=funny-voiceover"></script>
+    <script src="./script.js?v=segments-survey"></script>
   </body>
 </html>
