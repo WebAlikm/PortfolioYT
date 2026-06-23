@@ -263,6 +263,40 @@ p {
   font-size: clamp(1rem, 1.6vw, 1.22rem);
 }
 
+.value-points {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  width: min(680px, 100%);
+  margin: 2rem 0 0;
+  background: rgba(246, 241, 231, 0.18);
+  border: 1px solid rgba(246, 241, 231, 0.18);
+}
+
+.value-points div {
+  min-width: 0;
+  padding: 0.85rem;
+  background: rgba(5, 5, 5, 0.68);
+  backdrop-filter: blur(14px);
+}
+
+.value-points dt {
+  margin-bottom: 0.45rem;
+  color: var(--accent);
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.value-points dd {
+  margin: 0;
+  color: rgba(246, 241, 231, 0.86);
+  font-size: 0.9rem;
+  font-weight: 750;
+  line-height: 1.35;
+}
+
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
@@ -1211,6 +1245,10 @@ textarea {
   .faq-grid,
   .template-grid,
   .stat-list {
+    grid-template-columns: 1fr;
+  }
+
+  .value-points {
     grid-template-columns: 1fr;
   }
 
