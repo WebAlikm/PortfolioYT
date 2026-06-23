@@ -24,6 +24,7 @@
 
 html {
   overflow-x: hidden;
+  scroll-padding-top: 6.5rem;
   scroll-behavior: smooth;
 }
 
@@ -191,10 +192,42 @@ video {
 
 .site-header nav a {
   text-decoration: none;
+  white-space: nowrap;
 }
 
 .site-header nav a:hover {
   color: var(--accent);
+}
+
+.nav-cta {
+  border-radius: 999px;
+  padding: 0.48rem 0.68rem;
+  background: var(--accent);
+  color: #050505;
+}
+
+.site-header nav .nav-cta:hover {
+  color: #050505;
+  background: var(--ink);
+}
+
+.floating-cta {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 45;
+  display: none;
+  border: 1px solid rgba(5, 5, 5, 0.36);
+  border-radius: 999px;
+  padding: 0.85rem 1rem;
+  background: var(--accent);
+  color: #050505;
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.36);
+  font-size: 0.78rem;
+  font-weight: 950;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  text-transform: uppercase;
 }
 
 main {
@@ -383,6 +416,10 @@ p {
   flex-wrap: wrap;
   gap: 0.75rem;
   margin-top: 2.25rem;
+}
+
+.hero-actions .button {
+  flex: 0 1 auto;
 }
 
 .button {
@@ -612,6 +649,37 @@ p {
 
 .demo-card.is-hidden {
   display: none;
+}
+
+.cta-strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(1rem, 4vw, 2rem);
+  margin-top: clamp(2rem, 5vw, 4rem);
+  border: 1px solid rgba(240, 194, 55, 0.26);
+  border-radius: var(--radius);
+  padding: clamp(1rem, 3vw, 1.4rem);
+  background:
+    linear-gradient(135deg, rgba(240, 194, 55, 0.14), rgba(239, 75, 53, 0.08)),
+    #080808;
+  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.24);
+}
+
+.cta-strip h3 {
+  margin-bottom: 0.35rem;
+}
+
+.cta-strip p:last-child {
+  margin-bottom: 0;
+}
+
+.cta-strip-actions {
+  display: flex;
+  flex: 0 0 auto;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  justify-content: flex-end;
 }
 
 .video-trigger {
@@ -1294,9 +1362,16 @@ textarea {
   }
 
   .site-header nav {
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: flex-end;
     gap: 0.9rem;
+    max-width: min(100%, 35rem);
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .site-header nav::-webkit-scrollbar {
+    display: none;
   }
 
   .hero-note {
@@ -1349,11 +1424,23 @@ textarea {
 }
 
 @media (max-width: 620px) {
+  html {
+    scroll-padding-top: 8rem;
+  }
+
+  body {
+    padding-bottom: 4.25rem;
+  }
+
   .site-header {
+    position: sticky;
+    top: 0;
     width: min(100% - 1rem, 1240px);
     display: grid;
     justify-items: start;
-    padding-top: 0.8rem;
+    padding: 0.55rem 0 0.65rem;
+    background:
+      linear-gradient(180deg, rgba(5, 5, 5, 0.94), rgba(5, 5, 5, 0.7) 72%, transparent);
   }
 
   .brand {
@@ -1371,18 +1458,28 @@ textarea {
 
   .site-header nav {
     justify-content: flex-start;
-    max-width: 100%;
+    width: 100%;
+    max-width: calc(100vw - 1rem);
     padding: 0.58rem 0.7rem;
     font-size: 0.68rem;
   }
 
+  .floating-cta {
+    left: 1rem;
+    right: 1rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   section {
     width: min(100% - 1rem, 1240px);
-    padding: 4.5rem 0;
+    padding: 4rem 0;
   }
 
   .hero {
-    padding: 10rem 0.5rem 3rem;
+    min-height: auto;
+    padding: 2rem 0.5rem 3rem;
   }
 
   h1 {
@@ -1399,6 +1496,22 @@ textarea {
     font-size: clamp(2.2rem, 10vw, 3.2rem);
   }
 
+  .hero-content p:not(.eyebrow),
+  .usp-callout p,
+  p {
+    font-size: 0.95rem;
+  }
+
+  .hero-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .button {
+    width: 100%;
+    min-height: 3.1rem;
+  }
+
   .business-grid article {
     min-width: 0;
   }
@@ -1411,6 +1524,15 @@ textarea {
     grid-template-columns: 1fr;
   }
 
+  .cta-strip {
+    display: grid;
+  }
+
+  .cta-strip-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
   .flowchart article {
     min-height: auto;
   }
@@ -1420,7 +1542,28 @@ textarea {
   }
 
   .category-tile {
-    min-height: 7.25rem;
+    min-height: 5.8rem;
+  }
+
+  .category-tile::after {
+    display: none;
+  }
+
+  .value-points div,
+  .usp-callout,
+  .hero-note,
+  .request-form,
+  .survey-form,
+  .service-grid article,
+  .package-grid article,
+  .faq-grid article,
+  .persona-grid article,
+  .freelancer-grid article,
+  .case-grid article,
+  .template-grid article,
+  .turnaround-grid article,
+  .flowchart article {
+    padding: 1rem;
   }
 
   .video-trigger::after {
