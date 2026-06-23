@@ -427,10 +427,21 @@ p {
   color: rgba(5, 5, 5, 0.72);
 }
 
+.showcase-grid,
 .demo-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: clamp(1rem, 3vw, 1.5rem);
+}
+
+.showcase-grid article {
+  display: grid;
+  gap: 1rem;
+  min-width: 0;
+}
+
+.showcase-grid article:first-child {
+  grid-column: span 1;
 }
 
 .demo-card {
@@ -811,6 +822,66 @@ p {
   font-weight: 950;
 }
 
+.flowchart {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1px;
+  margin-bottom: clamp(1.5rem, 4vw, 3rem);
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+
+.flowchart article {
+  position: relative;
+  min-width: 0;
+  min-height: 16rem;
+  padding: clamp(1rem, 3vw, 1.4rem);
+  background:
+    linear-gradient(180deg, rgba(240, 194, 55, 0.08), transparent 44%),
+    #080808;
+}
+
+.flowchart article:not(:last-child)::after {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  color: var(--accent);
+  content: "→";
+  font-size: 1.4rem;
+  font-weight: 950;
+}
+
+.flowchart span {
+  display: block;
+  margin-bottom: 3.5rem;
+  color: var(--accent-red);
+  font-weight: 950;
+}
+
+.turnaround-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+
+.turnaround-grid article {
+  min-width: 0;
+  padding: clamp(1rem, 3vw, 1.4rem);
+  background: #080808;
+}
+
+.turnaround-grid article:first-child {
+  background: var(--ink);
+  color: #050505;
+}
+
+.turnaround-grid article:first-child p,
+.turnaround-grid article:first-child .demo-type {
+  color: rgba(5, 5, 5, 0.72);
+}
+
 .submit-copy {
   position: sticky;
   top: 6rem;
@@ -1014,6 +1085,7 @@ textarea {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .showcase-grid,
   .demo-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1023,6 +1095,8 @@ textarea {
   .freelancer-grid,
   .case-grid,
   .package-grid,
+  .flowchart,
+  .turnaround-grid,
   .faq-grid,
   .template-grid,
   .stat-list {
@@ -1077,10 +1151,19 @@ textarea {
   }
 
   .category-grid,
+  .showcase-grid,
   .demo-grid,
   .choice-grid,
   .field-pair {
     grid-template-columns: 1fr;
+  }
+
+  .flowchart article {
+    min-height: auto;
+  }
+
+  .flowchart article:not(:last-child)::after {
+    content: "↓";
   }
 
   .category-tile {
