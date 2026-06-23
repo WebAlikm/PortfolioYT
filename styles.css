@@ -1,13 +1,19 @@
 :root {
   color-scheme: dark;
-  --bg: #050505;
+  --brand-black: #050505;
+  --brand-charcoal: #0c0b09;
+  --brand-cream: #f6f1e7;
+  --brand-gold: #f0c237;
+  --brand-coral: #ef4b35;
+  --brand-glow: rgba(240, 194, 55, 0.18);
+  --bg: var(--brand-black);
   --panel: #0e0e0e;
   --panel-soft: #171717;
-  --ink: #f6f1e7;
+  --ink: var(--brand-cream);
   --muted: #a8a096;
   --line: rgba(246, 241, 231, 0.16);
-  --accent: #f0c237;
-  --accent-red: #ef4b35;
+  --accent: var(--brand-gold);
+  --accent-red: var(--brand-coral);
   --shadow: 0 24px 70px rgba(0, 0, 0, 0.42);
   --radius: 8px;
 }
@@ -25,7 +31,10 @@ body {
   margin: 0;
   min-width: 320px;
   overflow-x: hidden;
-  background: var(--bg);
+  background:
+    radial-gradient(circle at 12% 8%, rgba(240, 194, 55, 0.08), transparent 22rem),
+    radial-gradient(circle at 88% 18%, rgba(239, 75, 53, 0.07), transparent 24rem),
+    var(--bg);
   color: var(--ink);
   font-family:
     Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
@@ -121,20 +130,46 @@ video {
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  width: min(1240px, calc(100% - 2rem));
+  width: min(1280px, calc(100% - 1.5rem));
   margin: 0 auto;
-  padding: 1.15rem 0;
-  mix-blend-mode: difference;
+  padding: 0.75rem 0;
 }
 
 .brand {
-  display: grid;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  min-width: max-content;
+  border: 1px solid rgba(246, 241, 231, 0.18);
+  border-radius: 999px;
+  padding: 0.38rem 0.75rem 0.38rem 0.38rem;
+  background: rgba(5, 5, 5, 0.72);
   color: #fff;
-  font-size: clamp(1.25rem, 2.6vw, 2.8rem);
+  box-shadow: 0 16px 42px rgba(0, 0, 0, 0.32), 0 0 0 1px var(--brand-glow);
+  backdrop-filter: blur(16px);
+  text-decoration: none;
+}
+
+.brand-mark {
+  display: grid;
+  width: clamp(2.7rem, 5vw, 3.65rem);
+  height: clamp(2.7rem, 5vw, 3.65rem);
+  place-items: center;
+  border-radius: 999px;
+  background:
+    linear-gradient(135deg, var(--accent), var(--accent-red));
+  color: #050505;
+  font-size: clamp(0.85rem, 1.2vw, 1rem);
   font-weight: 950;
   letter-spacing: 0;
-  line-height: 0.86;
-  text-decoration: none;
+}
+
+.brand-name {
+  display: grid;
+  font-size: clamp(1rem, 2.1vw, 1.9rem);
+  font-weight: 950;
+  letter-spacing: 0;
+  line-height: 0.9;
   text-transform: uppercase;
 }
 
@@ -142,11 +177,16 @@ video {
   display: flex;
   align-items: center;
   gap: clamp(0.75rem, 2vw, 1.6rem);
+  border: 1px solid rgba(246, 241, 231, 0.14);
+  border-radius: 999px;
+  padding: 0.72rem 0.9rem;
+  background: rgba(5, 5, 5, 0.56);
   color: #fff;
   font-size: 0.78rem;
   font-weight: 850;
   letter-spacing: 0.1em;
   text-transform: uppercase;
+  backdrop-filter: blur(16px);
 }
 
 .site-header nav a {
@@ -193,7 +233,8 @@ section {
 .hero-shade {
   z-index: -2;
   background:
-    radial-gradient(circle at 72% 42%, rgba(240, 194, 55, 0.15), transparent 22rem),
+    radial-gradient(circle at 72% 42%, var(--brand-glow), transparent 22rem),
+    radial-gradient(circle at 28% 60%, rgba(239, 75, 53, 0.12), transparent 26rem),
     linear-gradient(90deg, rgba(0, 0, 0, 0.84), rgba(0, 0, 0, 0.42) 52%, rgba(0, 0, 0, 0.82)),
     linear-gradient(180deg, rgba(0, 0, 0, 0.48), rgba(0, 0, 0, 0.2) 42%, #050505 100%);
 }
@@ -269,14 +310,14 @@ p {
   gap: 1px;
   width: min(680px, 100%);
   margin: 2rem 0 0;
-  background: rgba(246, 241, 231, 0.18);
-  border: 1px solid rgba(246, 241, 231, 0.18);
+  background: linear-gradient(135deg, rgba(240, 194, 55, 0.4), rgba(239, 75, 53, 0.28));
+  border: 1px solid rgba(240, 194, 55, 0.28);
 }
 
 .value-points div {
   min-width: 0;
   padding: 0.85rem;
-  background: rgba(5, 5, 5, 0.68);
+  background: rgba(5, 5, 5, 0.72);
   backdrop-filter: blur(14px);
 }
 
@@ -295,6 +336,46 @@ p {
   font-size: 0.9rem;
   font-weight: 750;
   line-height: 1.35;
+}
+
+.usp-callout {
+  display: grid;
+  gap: 0.55rem;
+  width: min(680px, 100%);
+  margin-top: 1rem;
+  border: 1px solid rgba(240, 194, 55, 0.34);
+  border-radius: var(--radius);
+  padding: clamp(1rem, 2vw, 1.25rem);
+  background:
+    linear-gradient(135deg, rgba(240, 194, 55, 0.16), rgba(239, 75, 53, 0.09)),
+    rgba(5, 5, 5, 0.76);
+  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(240, 194, 55, 0.08);
+  backdrop-filter: blur(16px);
+}
+
+.usp-callout span {
+  width: max-content;
+  border-radius: 999px;
+  padding: 0.28rem 0.48rem;
+  background: var(--accent);
+  color: #050505;
+  font-size: 0.64rem;
+  font-weight: 950;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.usp-callout strong {
+  max-width: 36rem;
+  color: var(--ink);
+  font-size: clamp(1.08rem, 2vw, 1.45rem);
+  line-height: 1.15;
+}
+
+.usp-callout p {
+  max-width: 40rem;
+  margin-bottom: 0;
+  color: rgba(246, 241, 231, 0.78);
 }
 
 .hero-actions {
@@ -338,13 +419,14 @@ p {
 }
 
 .button.primary {
-  background: var(--ink);
+  border-color: var(--accent);
+  background: var(--accent);
   color: #050505;
 }
 
 .button.primary:hover {
-  background: var(--accent);
-  border-color: var(--accent);
+  background: var(--ink);
+  border-color: var(--ink);
 }
 
 .button.secondary {
@@ -370,10 +452,12 @@ p {
   right: max(1rem, calc((100vw - 1240px) / 2));
   bottom: clamp(1rem, 4vw, 3rem);
   width: min(22rem, calc(100% - 2rem));
-  border: 1px solid var(--line);
+  border: 1px solid rgba(240, 194, 55, 0.26);
   border-radius: var(--radius);
   padding: 1rem;
-  background: rgba(5, 5, 5, 0.68);
+  background:
+    linear-gradient(135deg, rgba(240, 194, 55, 0.1), rgba(239, 75, 53, 0.05)),
+    rgba(5, 5, 5, 0.72);
   backdrop-filter: blur(14px);
   box-shadow: var(--shadow);
 }
@@ -1205,10 +1289,13 @@ textarea {
 
 @media (max-width: 980px) {
   .site-header {
-    mix-blend-mode: normal;
+    align-items: flex-start;
+    width: min(100% - 1rem, 1240px);
   }
 
   .site-header nav {
+    flex-wrap: wrap;
+    justify-content: flex-end;
     gap: 0.9rem;
   }
 
@@ -1264,13 +1351,28 @@ textarea {
 @media (max-width: 620px) {
   .site-header {
     width: min(100% - 1rem, 1240px);
-    align-items: flex-start;
+    display: grid;
+    justify-items: start;
     padding-top: 0.8rem;
   }
 
+  .brand {
+    padding-right: 0.65rem;
+  }
+
+  .brand-mark {
+    width: 2.45rem;
+    height: 2.45rem;
+  }
+
+  .brand-name {
+    font-size: 0.95rem;
+  }
+
   .site-header nav {
-    flex-wrap: wrap;
-    justify-content: flex-end;
+    justify-content: flex-start;
+    max-width: 100%;
+    padding: 0.58rem 0.7rem;
     font-size: 0.68rem;
   }
 
@@ -1280,7 +1382,7 @@ textarea {
   }
 
   .hero {
-    padding: 7.5rem 0.5rem 3rem;
+    padding: 10rem 0.5rem 3rem;
   }
 
   h1 {
