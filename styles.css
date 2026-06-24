@@ -237,7 +237,7 @@ main {
 section {
   width: min(1240px, calc(100% - 2rem));
   margin: 0 auto;
-  padding: clamp(5.5rem, 11vw, 9.5rem) 0;
+  padding: clamp(7.5rem, 14vw, 12.5rem) 0;
 }
 
 .hero {
@@ -303,18 +303,18 @@ h3 {
 
 h1 {
   max-width: 880px;
-  margin-bottom: 1.35rem;
-  font-size: clamp(4.6rem, 13.5vw, 11.5rem);
+  margin-bottom: 2rem;
+  font-size: clamp(4.6rem, 13vw, 10.5rem);
   font-weight: 950;
-  line-height: 0.84;
+  line-height: 1.05;
   text-transform: uppercase;
 }
 
 h2 {
   margin-bottom: 0;
-  font-size: clamp(2.75rem, 6.8vw, 6.4rem);
+  font-size: clamp(2.75rem, 6.5vw, 5.8rem);
   font-weight: 950;
-  line-height: 0.9;
+  line-height: 1.1;
   text-transform: uppercase;
   overflow-wrap: break-word;
 }
@@ -328,7 +328,7 @@ h3 {
 p {
   color: var(--muted);
   font-size: 1rem;
-  line-height: 1.65;
+  line-height: 1.8;
 }
 
 .hero-content p:not(.eyebrow) {
@@ -342,7 +342,7 @@ p {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1px;
   width: min(680px, 100%);
-  margin: 2rem 0 0;
+  margin: 3.5rem 0 0;
   background: linear-gradient(135deg, rgba(240, 194, 55, 0.4), rgba(239, 75, 53, 0.28));
   border: 1px solid rgba(240, 194, 55, 0.28);
 }
@@ -375,7 +375,7 @@ p {
   display: grid;
   gap: 0.55rem;
   width: min(680px, 100%);
-  margin-top: 1rem;
+  margin-top: 1.75rem;
   border: 1px solid rgba(240, 194, 55, 0.34);
   border-radius: var(--radius);
   padding: clamp(1rem, 2vw, 1.25rem);
@@ -628,7 +628,7 @@ p {
 .demo-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: clamp(1rem, 3vw, 1.5rem);
+  gap: clamp(1.5rem, 4vw, 2.5rem);
 }
 
 .showcase-grid article {
@@ -828,14 +828,14 @@ p {
 .persona-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1px;
-  background: var(--line);
-  border: 1px solid var(--line);
+  gap: 1.5rem;
 }
 
 .persona-grid article {
   min-width: 0;
-  padding: clamp(1.25rem, 3vw, 1.75rem);
+  padding: clamp(1.5rem, 4vw, 2.25rem);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
   background:
     linear-gradient(180deg, rgba(240, 194, 55, 0.08), transparent 34%),
     #080808;
@@ -1040,9 +1040,7 @@ p {
 .package-grid,
 .faq-grid {
   display: grid;
-  gap: 1px;
-  background: var(--line);
-  border: 1px solid var(--line);
+  gap: 1.5rem;
 }
 
 .service-grid {
@@ -1061,8 +1059,10 @@ p {
 .package-grid article,
 .faq-grid article {
   min-width: 0;
-  padding: clamp(1.25rem, 3vw, 1.75rem);
+  padding: clamp(1.5rem, 4vw, 2.25rem);
   background: #080808;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
 }
 
 .service-grid span {
