@@ -1606,3 +1606,63 @@ textarea {
   color: var(--ink);
   margin-right: 0.25rem;
 }
+
+/* Pathway Gateway Styles */
+.pathway-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.pathway-card {
+  display: grid;
+  gap: 1rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: clamp(1.5rem, 4vw, 2.8rem);
+  background:
+    linear-gradient(180deg, rgba(246, 241, 231, 0.02), transparent),
+    #080808;
+  text-decoration: none;
+  transition:
+    transform 240ms ease,
+    border-color 240ms ease,
+    background 240ms ease,
+    box-shadow 240ms ease;
+}
+
+.pathway-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent);
+  background: rgba(240, 194, 55, 0.05);
+  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.45);
+}
+
+.pathway-card h3 {
+  margin: 0;
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  font-weight: 950;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.pathway-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: clamp(0.85rem, 1.1vw, 0.95rem);
+  line-height: 1.6;
+}
+
+.pathway-card span {
+  color: var(--accent);
+  font-weight: 900;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 920px) {
+  .pathway-grid {
+    grid-template-columns: 1fr;
+  }
+}
