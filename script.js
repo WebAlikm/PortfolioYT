@@ -15,7 +15,7 @@ const fileInput = document.querySelector('input[type="file"]');
 const fileNote = document.querySelector("[data-file-note]");
 const statusMessage = document.querySelector(".form-status");
 const surveyStatus = document.querySelector(".survey-status");
-const surveyRecipient = "alislim007km@gmail.com";
+const emailRecipient = "alislim007km@gmail.com";
 
 function pausePreviews(exceptVideo) {
   previewVideos.forEach((video) => {
@@ -124,18 +124,58 @@ fileInput?.addEventListener("change", () => {
   fileNote.textContent = file ? `${file.name} selected` : "No file selected";
 });
 
-form?.addEventListener("submit", () => {
-  statusMessage.textContent = "Sending your brief...";
-});
-
-function getSurveyValue(name) {
-  return surveyForm?.elements[name]?.value?.trim() || "Not provided";
+function getFormValue(activeForm, name) {
+  return activeForm?.elements[name]?.value?.trim() || "Not provided";
 }
 
-function getCheckedLabel(name) {
-  const checked = surveyForm?.querySelector(`input[name="${name}"]:checked`);
+function getCheckedLabel(activeForm, name) {
+  if (!activeForm) {
+    return "Not provided";
+  }
+
+  const checked = activeForm.querySelector(`input[name="${name}"]:checked`);
   return checked?.closest("label")?.textContent.trim() || "Not provided";
 }
+
+function openEmail(subject, body, statusElement) {
+  if (statusElement) {
+    statusElement.textContent = `Opening an email to ${emailRecipient}...`;
+  }
+
+  window.location.href = `mailto:${emailRecipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+}
+
+form?.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  if (form.elements.company?.value) {
+    return;
+  }
+
+  const selectedFile = form.elements.voiceover?.files?.[0];
+  const body = [
+    "New Script to Short brief",
+    "",
+    `Name: ${getFormValue(form, "name")}`,
+    `Email: ${getFormValue(form, "email")}`,
+    `Channel or reference link: ${getFormValue(form, "channel")}`,
+    `Desired length: ${getFormValue(form, "length")}`,
+    `Budget range: ${getFormValue(form, "budget")}`,
+    `Deadline: ${getFormValue(form, "deadline")}`,
+    `Style reference: ${getFormValue(form, "style-reference")}`,
+    "",
+    "Script:",
+    getFormValue(form, "script"),
+    "",
+    "Voiceover file:",
+    selectedFile ? `${selectedFile.name} (please attach this file to the email)` : "No file selected",
+    "",
+    "Notes:",
+    getFormValue(form, "notes"),
+  ].join("\n");
+
+  openEmail("Script to Short brief", body, statusMessage);
+});
 
 surveyForm?.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -148,14 +188,13 @@ surveyForm?.addEventListener("submit", (event) => {
   const body = [
     "New Script to Short survey response",
     "",
-    `Persona: ${getSurveyValue("persona")}`,
-    `Main goal: ${getSurveyValue("goal")}`,
-    `Biggest blocker: ${getCheckedLabel("blocker")}`,
+    `Persona: ${getFormValue(surveyForm, "persona")}`,
+    `Main goal: ${getFormValue(surveyForm, "goal")}`,
+    `Biggest blocker: ${getCheckedLabel(surveyForm, "blocker")}`,
     "",
     "Notes:",
-    getSurveyValue("preference-notes"),
+    getFormValue(surveyForm, "preference-notes"),
   ].join("\n");
 
-  surveyStatus.textContent = `Opening an email to ${surveyRecipient}...`;
-  window.location.href = `mailto:${surveyRecipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  openEmail(subject, body, surveyStatus);
 });
