@@ -1666,3 +1666,52 @@ textarea {
     grid-template-columns: 1fr;
   }
 }
+
+/* Feature List Grid (Deep Dive) Styles */
+.feature-list-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.feature-list-grid article {
+  display: grid;
+  gap: 1rem;
+  padding: 1.5rem;
+  border-left: 1px solid var(--line);
+  background: rgba(246, 241, 231, 0.015);
+  transition: border-color 240ms ease, background 240ms ease;
+}
+
+.feature-list-grid article:hover {
+  border-left-color: var(--accent);
+  background: rgba(240, 194, 55, 0.03);
+}
+
+.feature-list-grid h3 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 950;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+}
+
+.feature-list-grid p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+@media (max-width: 1024px) {
+  .feature-list-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 620px) {
+  .feature-list-grid {
+    grid-template-columns: 1fr;
+  }
+}
